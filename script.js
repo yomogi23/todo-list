@@ -3,8 +3,8 @@ const taskInput = document.getElementById('task-input');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
 
-// 「追加」ボタンが押されたときの処理
-addBtn.addEventListener('click', () => {
+// タスクを追加する
+function addTask() {
   const text = taskInput.value.trim();
   if (text === '') return; // 空欄なら何もしない
 
@@ -14,7 +14,6 @@ addBtn.addEventListener('click', () => {
   // 2. タスクの文字部分（span）を作成
   const span = document.createElement('span');
   span.textContent = text;
-  // 文字をクリックしたら完了状態（.completed）を切り替え
   span.addEventListener('click', () => {
     span.classList.toggle('completed');
   });
@@ -35,4 +34,10 @@ addBtn.addEventListener('click', () => {
 
   // 5. 入力欄を空に戻す
   taskInput.value = '';
+});
+
+addBtn.addEventListener('click',addTask);
+taskInput.addEventListener('keydown',(event) =>{
+  if (event.key === 'Enter' && !event.isComposting) {
+  }
 });
