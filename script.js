@@ -34,7 +34,8 @@ function render() {
       task.completed = !task.completed;
       saveTasks();
       render();
-    });
+    taskInput.value = '';
+    }
 
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = '削除';
